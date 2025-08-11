@@ -25,7 +25,7 @@ try {
     $mail->isHTML(true);
     $mail->Subject = 'টেস্ট ইমেইল PHPMailer দিয়ে';
     $mail->Body    = '<h2>হ্যালো!</h2><p>এটি PHPMailer দিয়ে পাঠানো একটি টেস্ট ইমেইল।</p>';
-    $mail->AltBody = 'হ্যালো! এটি PHPMailer দিয়ে পাঠানো একটি টেস্ট ইমেইল।';
+    $mail->AltBody = 'হ্যালো! এটি PHPMailer দিয়ে পাঠানো একটি টেস্ট ইমেইল।';//যদি আমরা body তে কোনো মেসেজ পাস না করি তখন এটা ব্যবহার করবে
 
     // মেইল পাঠানো
     $mail->send();
