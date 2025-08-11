@@ -1,0 +1,65 @@
+
+USER Class Summary and Real-Life Use
+
+This PHP USER class is a reusable authentication system designed for websites or web applications. It provides the core functionality needed to manage user accounts securely and efficiently.
+
+Key Features:
+- User Registration:
+  Registers a new user with username, email, and password.
+  Passwords are hashed securely.
+  Sends email verification link with a unique token.
+
+- User Login:
+  Validates user credentials.
+  Checks that the user's email has been verified.
+  Starts a session and stores user info.
+
+- Email Verification:
+  Allows users to verify their email by clicking a link with a token.
+  Updates user status in the database upon successful verification.
+
+- Session Management:
+  Checks if a user is logged in.
+  Logs users out by clearing the session.
+
+- Password Reset:
+  Forgot Password:
+    Generates a secure reset token with an expiration (1 hour).
+    Saves the token in the database.
+    Sends a password reset link to the user's email.
+  Reset Password:
+    Validates the reset token and expiration.
+    Allows the user to set a new password securely.
+    Clears the reset token and expiry after successful reset.
+
+Security Measures:
+- Uses PHP's password_hash() and password_verify() for password security.
+- Uses prepared statements to prevent SQL injection.
+- Tokens for email verification and password reset are securely generated using random_bytes().
+- Compares tokens securely using hash_equals() to prevent timing attacks.
+
+Database Requirements:
+- Users table should include columns:
+  id, username, email, password, token, verified, reset_token, reset_token_expiry
+
+Real-Life Use:
+This class is perfect for any web application requiring user authentication, such as:
+- Ecommerce websites
+- Membership sites
+- SaaS platforms
+- Blogs with user accounts
+- Any PHP web app needing secure login and account management
+
+Benefits:
+- Centralizes authentication logic.
+- Easy to maintain and extend.
+- Enhances security by handling password hashing and token generation properly.
+- Provides user-friendly features like email verification and password recovery.
+- Helps comply with security best practices for handling user credentials.
+
+To deploy, you need to:
+- Set up the database with the required schema.
+- Implement the email sending method (e.g., with PHPMailer).
+- Create front-end pages to handle registration, login, verification, forgot/reset password flows.
+- Use this USER class to interact with user accounts securely.
+
